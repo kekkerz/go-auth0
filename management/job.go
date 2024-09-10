@@ -148,7 +148,7 @@ func (m *JobManager) ExportUsers(ctx context.Context, j *Job, opts ...RequestOpt
 // ImportUsers imports users from a formatted file into a connection via a long-running job.
 //
 // See: https://auth0.com/docs/api/management/v2#!/Jobs/post_users_imports
-func (m *JobManager) ImportUsers(ctx context.Context, j *Job, opts ...RequestOption) error {
+func (m *JobManager) ImportUsers(ctx context.Context, j *Job, opts ...RequestOption) (*json.Decoder, error) {
 	var payload bytes.Buffer
 	mp := multipart.NewWriter(&payload)
 
